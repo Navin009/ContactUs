@@ -1,0 +1,84 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+body {
+	background-image: linear-gradient(-225deg, #231557 0%, #44107a 29%, #ff1361 67%, #fff800 100%);
+	display: grid;
+	min-height: 97.5vh;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+}
+
+.signout-btn{
+	position: absolute;
+	right: 5vh;
+	top: 5vh;
+	padding: 1vh 2vh;
+	font-family: "Poppins";
+}
+
+table {
+	border: 1px solid #ddd;
+	border-collapse: collapse;
+	border-radius: 1vh;
+	text-align: center;
+	max-height: 80vh;
+}
+
+thead {
+	background-color: #f1f1f1;
+}
+
+thead tr {
+	font-family: "Poppins";
+}
+
+tbody td {
+	border: 1px solid #ddd;
+	overflow: auto;
+	font-family: "Poppins";
+	width: 20vw;
+	word-wrap: normal;
+	background: rgba(255, 255, 255, 0.5);
+}
+
+
+
+tbody tr:nth-child(even) {
+	background-color: rgba(0, 0, 0, 0.5);
+}
+
+.message {
+	text-align: justify;
+	font-size: small;
+	max-height: 20vh;
+}
+::-webkit-scrollbar {
+	height: 12px;
+	width: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+	background: rgba(255, 255, 255, 0.5);
+	border-radius: 99px;
+}
+
+tbody td > input[type="checkbox"] {
+	height: 25px;
+	width: 25px;
+}
+
+.save-btn {
+	justify-self: end;
+	height: max-content;
+	width: max-content;
+	margin: 2vh;
+	padding: 1vh 2vh;
+	border-radius: 2vh;
+	outline: none;
+	border: none;
+}
+
+.save-btn:active {
+	transform: scale(0.95);
+}
