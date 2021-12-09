@@ -16,7 +16,7 @@
                 <span>Login</span>
             </div>
             <div class="login-body">
-                <form action="validate" method="post">
+                <form action="./login" method="post">
                     <div class="form-group">
                         <label for="email">Email</label>
                         <input type="text" name="email" id="email">
@@ -35,7 +35,7 @@
     </div>
     <script type="text/javascript">
         function contactUsRedirect() {
-            window.location.replace("/contactus");
+            window.location.replace("./contactus");
         }
     </script>
 </body>
