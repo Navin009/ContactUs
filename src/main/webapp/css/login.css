@@ -1,0 +1,65 @@
+@import url("https://fonts.googleapis.com/css2?family=Corinthia:wght@700&display=swap");
+
+body {
+	min-height: 97vh;
+	background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);
+	background-repeat: no-repeat;
+	display: grid;
+	justify-content: center;
+	align-items: center;
+}
+.login-container {
+	box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.15);
+	padding: 2vh;
+	height: max-content;
+	border-radius: 1vh;
+	overflow: hidden;
+	backdrop-filter: saturate(150%) blur(20px);
+}
+
+.login-header {
+	display: grid;
+	justify-content: center;
+	font-family: "Corinthia";
+	font-size: 80px;
+}
+
+.form-group {
+	width: 30vw;
+	display: grid;
+	font-family: "Corinthia";
+	font-size: 30px;
+	justify-content: center;
+	margin: 4vh 1vh;
+}
+
+.form-group > input {
+	border: none;
+	border-bottom: 1px solid #000;
+	background: transparent;
+	font-size: large;
+	outline: none;
+	width: 25vw;
+}
+
+.form-group > button {
+	border: none;
+	background: rgba(0, 0, 0, 0.2);
+	padding: 1vh 2vw;
+	border-radius: 2vh;
+	font-size: large;
+	outline: none;
+	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.form-group > button:hover {
+	background: rgba(0, 0, 0, 0.4);
+}
+.form-group > button:active {
+	transform: scale(0.95);
+}
+
+.form-group:last-of-type {
+	display: flex;
+	justify-content: space-around;
+}
