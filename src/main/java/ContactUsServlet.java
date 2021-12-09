@@ -14,8 +14,7 @@ public class ContactUsServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        RequestDispatcher requestDispacher = request.getRequestDispatcher("./contactus.jsp");
-        requestDispacher.forward(request, response);
+        request.getRequestDispatcher("./contactus.jsp").forward(request, response);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)

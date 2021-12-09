@@ -1,8 +1,7 @@
-<!DOCTYPE html>
+<%-- <!DOCTYPE html>
 <%@page import="java.sql.Statement" %>
     <%@page import="java.sql.ResultSet" %>
         <%@page import="java.sql.Connection" %>
-            <%@page import="admin.DatabaseConnection" %>
             <html lang="en">
                 <head>
                     <meta charset="UTF-8">
@@ -39,9 +38,6 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <% Connection connection= DatabaseConnection.getConnection();
-                            Statement statement = connection.createStatement(); 
-                            ResultSet result=statement.executeQuery("select * from feedback");
                             while(result.next()) { %>
                                 <tr>
                                     <td>
@@ -66,4 +62,6 @@
                     <script src="./js/script.js"></script>
                 </body>
 
-            </html>
+            </html> --%>
+            
+<h1>Hello World!</h1>
