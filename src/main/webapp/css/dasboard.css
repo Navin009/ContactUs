@@ -3,13 +3,15 @@
 body {
 	background-image: linear-gradient(-225deg, #231557 0%, #44107a 29%, #ff1361 67%, #fff800 100%);
 	display: grid;
+	grid-auto-flow: column;
+	gap: 3vw;
 	min-height: 97.5vh;
 	justify-content: center;
 	align-items: center;
 	align-content: center;
 }
 
-.signout-btn{
+.signout-btn {
 	position: absolute;
 	right: 5vh;
 	top: 5vh;
@@ -34,15 +36,14 @@ thead tr {
 }
 
 tbody td {
+	font-size: small;
 	border: 1px solid #ddd;
 	overflow: auto;
 	font-family: "Poppins";
-	width: 20vw;
+	width: min-content;
 	word-wrap: normal;
 	background: rgba(255, 255, 255, 0.5);
 }
-
-
 
 tbody tr:nth-child(even) {
 	background-color: rgba(0, 0, 0, 0.5);
@@ -66,19 +67,4 @@ tbody tr:nth-child(even) {
 tbody td > input[type="checkbox"] {
 	height: 25px;
 	width: 25px;
-}
-
-.save-btn {
-	justify-self: end;
-	height: max-content;
-	width: max-content;
-	margin: 2vh;
-	padding: 1vh 2vh;
-	border-radius: 2vh;
-	outline: none;
-	border: none;
-}
-
-.save-btn:active {
-	transform: scale(0.95);
 }

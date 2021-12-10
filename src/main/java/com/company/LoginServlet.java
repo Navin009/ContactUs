@@ -1,8 +1,11 @@
+package com.company;
+
 import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -23,6 +26,9 @@ public class LoginServlet extends HttpServlet {
         LoginDao loginDao = new LoginDao();
         if (loginDao.validateAdmin(email, password)) {
             request.getSession().setAttribute("username", email);
+            Cookie cookie = new Cookie("UID", email);
+            cookie.setPath("/contactus");
+            response.addCookie(cookie);
             response.sendRedirect("./dashboard");
         } else {
             request.setAttribute("error", "Invalid username or password");
