@@ -15,12 +15,10 @@
 response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
 response.setHeader("Pragma", "no-cache");
 
-Cookie[] cookies = request.getCookies();
 boolean isLoggedIn = false;
-for (Cookie cookie : cookies) {
-	if (cookie.getName().equals("UID")) {
-		isLoggedIn = true;
-	}
+
+if (session.getAttribute("email") != null && session.getAttribute("password") != null) {
+	isLoggedIn = true;
 }
 
 if (!isLoggedIn) {

@@ -29,16 +29,10 @@ public class ContactUsServlet extends HttpServlet {
 		boolean isInserted = dao.insertContactUs(name, email, message);
 
 		HttpSession session = request.getSession();
-
 		if (isInserted) {
 			session.setAttribute("status", "Data Submitted!");
-			// out.println("<script>alert('Data Submitted!');
-			// window.location.replace('./contactus');</script> ");
-
 		} else {
 			session.setAttribute("status", "Data Not Submitted!");
-			// out.println("<script>alert('Data Not Submitted!');
-			// window.location.replace('./contactus')</script> ");
 		}
 		response.sendRedirect("./contactus");
 	}

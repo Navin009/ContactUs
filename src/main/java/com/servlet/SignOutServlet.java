@@ -3,10 +3,10 @@ package com.servlet;
 import java.io.IOException;
 
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 @SuppressWarnings("serial")
 @WebServlet("/signout")
@@ -14,15 +14,9 @@ public class SignOutServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		
-		Cookie[] cookies = request.getCookies();
-		for (Cookie cookie : cookies) {
-			if (cookie.getName().equals("UID")) {
-				cookie.setPath("/contactus");
-				cookie.setMaxAge(0);
-
-				response.addCookie(cookie);
-			}
-		}	
+		HttpSession session = request.getSession();
+		session.removeAttribute("email");
+		session.removeAttribute("password");
 		response.sendRedirect("./login");
 	}
 
