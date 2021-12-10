@@ -12,6 +12,9 @@
 <link rel="stylesheet" href="./css/dasboard.css">
 </head>
 <%
+response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+response.setHeader("Pragma", "no-cache");
+
 Cookie[] cookies = request.getCookies();
 boolean isLoggedIn = false;
 for (Cookie cookie : cookies) {
@@ -25,7 +28,8 @@ if (!isLoggedIn) {
 }
 %>
 <body>
-	<button class="signout-btn" onclick="signOutUser()">Sign Out</button>
+	<button class="signout-btn"
+		onclick="window.location.href = './signout';">Sign Out</button>
 	<table>
 		<thead>
 			<tr>
@@ -48,7 +52,8 @@ if (!isLoggedIn) {
 				<td>
 					<div class="message"><%=requestRow.getMessage()%></div>
 				</td>
-				<td><input type="checkbox" name="" id="" checked></td>
+				<td><input type="checkbox" name="" id=""
+					onclick="archiveRequest(<%=requestRow.getId()%>)" checked></td>
 			</tr>
 			<%
 			}
@@ -77,7 +82,8 @@ if (!isLoggedIn) {
 				<td>
 					<div class="message"><%=requestRow.getMessage()%></div>
 				</td>
-				<td><input type="checkbox" name="" id="" checked></td>
+				<td><input type="checkbox" name="" id=""
+					onclick="activeRequest(<%=requestRow.getId()%>)" checked></td>
 			</tr>
 			<%
 			}
@@ -85,7 +91,33 @@ if (!isLoggedIn) {
 			%>
 		</tbody>
 	</table>
-	<script src="./js/script.js"></script>
+	<script type="text/javascript">
+	function archiveRequest(id){
+		let xhr = new XMLHttpRequest();
+		xhr.open("POST" , "./dashboard");
+		xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+		let body = "id="+id + "&status=active";
+		xhr.onreadystatechange = function(){
+			if(xhr.readyState == 4 && xhr.status == 200){
+				window.location.reload();
+			}
+		}
+		xhr.send(body);
+	}
+	
+	function activeRequest(id){
+		let xhr = new XMLHttpRequest();
+		xhr.open("POST" , "./dashboard");
+		xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+		let body = "id="+id + "&status=archive";
+		xhr.onreadystatechange = function () {
+			if (xhr.readyState == 4 && xhr.status == 200) {
+				window.location.reload();
+			}
+		}
+		xhr.send(body);
+	}
+	</script>
 </body>
 
 </html>

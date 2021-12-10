@@ -13,7 +13,7 @@ public class RequestDao {
         List<Request> requests = new ArrayList<>();
         try {
             Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("SELECT * FROM feedback WHERE active = 0");
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM feedback WHERE archived = 0");
             while (resultSet.next()) {
                 Request request = new Request();
                 request.setId(resultSet.getInt("id"));
@@ -39,7 +39,7 @@ public class RequestDao {
         List<Request> requests = new ArrayList<>();
         try {
             Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("SELECT * FROM feedback WHERE active = 1");
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM feedback WHERE archived = 1");
             while (resultSet.next()) {
                 Request request = new Request();
                 request.setId(resultSet.getInt("id"));
@@ -57,5 +57,30 @@ public class RequestDao {
             e.printStackTrace();
         }
         return null;
+    }
+
+    public boolean updateRequest(int id, String status) {
+        Connection connection = DBConnection.getConnection();
+        try {
+            Statement statement = connection.createStatement();
+            if (status.equals("active")) {
+                int result = statement.executeUpdate("UPDATE feedback SET archived = " + 1 + " WHERE id = " + id);
+                if (result == 1) {
+                    return true;
+                } else {
+                    return false;
+                }
+            } else {
+                int result = statement.executeUpdate("UPDATE feedback SET archived = " + 0 + " WHERE id = " + id);
+                if (result == 1) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 }

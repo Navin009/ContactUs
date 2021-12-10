@@ -2,7 +2,6 @@ package com.company;
 
 import java.io.IOException;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -18,6 +17,15 @@ public class DashboardServlet extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+    	Integer id = Integer.parseInt(request.getParameter("id"));
+    	String status = request.getParameter("status");
+    	boolean isUpdated = new RequestDao().updateRequest(id, status);
+    	
+    	if(isUpdated) {
+    		request.setAttribute("status", "Data Updated Successfully");
+    	}else {
+    		request.setAttribute("status", "Data not Updated");
+    	}
+    	response.sendRedirect("./dashboard.jsp");
     }
 }
