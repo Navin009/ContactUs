@@ -32,9 +32,11 @@ public class LoginServlet extends HttpServlet {
         if (loginDao.validateAdmin(email, password)) {
             session.setAttribute("email", email);
             session.setAttribute("password", password);
+            
             response.sendRedirect("./dashboard");
         } else {
             request.setAttribute("error", "Invalid username or password");
+            
             RequestDispatcher requestDispatcher = request.getRequestDispatcher("./login.jsp");
             requestDispatcher.forward(request, response);
         }

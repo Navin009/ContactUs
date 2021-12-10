@@ -13,9 +13,11 @@ public class RequestDao {
 	public List<Request> getAllActiveRequests() {
 		Connection connection = DBConnection.getConnection();
 		List<Request> requests = new ArrayList<>();
+		
 		try {
 			Statement statement = connection.createStatement();
 			ResultSet resultSet = statement.executeQuery("SELECT * FROM feedback WHERE archived = 0");
+			
 			while (resultSet.next()) {
 				Request request = new Request();
 				request.setId(resultSet.getInt("id"));
@@ -42,6 +44,7 @@ public class RequestDao {
 		try {
 			Statement statement = connection.createStatement();
 			ResultSet resultSet = statement.executeQuery("SELECT * FROM feedback WHERE archived = 1");
+			
 			while (resultSet.next()) {
 				Request request = new Request();
 				request.setId(resultSet.getInt("id"));
@@ -65,8 +68,10 @@ public class RequestDao {
 		Connection connection = DBConnection.getConnection();
 		try {
 			Statement statement = connection.createStatement();
+			
 			if (status.equals("active")) {
 				int result = statement.executeUpdate("UPDATE feedback SET archived = " + 1 + " WHERE id = " + id);
+				
 				if (result == 1) {
 					return true;
 				} else {
@@ -74,6 +79,7 @@ public class RequestDao {
 				}
 			} else {
 				int result = statement.executeUpdate("UPDATE feedback SET archived = " + 0 + " WHERE id = " + id);
+				
 				if (result == 1) {
 					return true;
 				} else {

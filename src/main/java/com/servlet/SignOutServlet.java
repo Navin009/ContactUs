@@ -13,7 +13,6 @@ import javax.servlet.http.HttpSession;
 public class SignOutServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		
 		HttpSession session = request.getSession();
 		session.removeAttribute("email");
 		session.removeAttribute("password");

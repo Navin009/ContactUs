@@ -14,7 +14,9 @@ public class ContactUsDao {
             preparedStatement.setString(1, name);
             preparedStatement.setString(2, email);
             preparedStatement.setString(3, message);
+            
             int res = preparedStatement.executeUpdate();
+            
             if (res > 0) {
                 result = true;
             }
