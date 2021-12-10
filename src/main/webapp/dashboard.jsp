@@ -17,6 +17,7 @@ response.setHeader("Pragma", "no-cache");
 
 Cookie[] cookies = request.getCookies();
 boolean isLoggedIn = false;
+
 for (Cookie cookie : cookies) {
 	if (cookie.getName().equals("UID")) {
 		isLoggedIn = true;

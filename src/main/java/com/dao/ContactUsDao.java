@@ -10,11 +10,14 @@ public class ContactUsDao {
         try {
             String sql = "INSERT INTO feedback VALUES(?,?,?)";
             Connection connection = DBConnection.getConnection();
+            
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, name);
             preparedStatement.setString(2, email);
             preparedStatement.setString(3, message);
+            
             int res = preparedStatement.executeUpdate();
+            
             if (res > 0) {
                 result = true;
             }
