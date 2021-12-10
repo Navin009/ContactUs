@@ -53,7 +53,7 @@ if (!isLoggedIn) {
 					<div class="message"><%=requestRow.getMessage()%></div>
 				</td>
 				<td><input type="checkbox" name="" id=""
-					onclick="archiveRequest(<%=requestRow.getId()%>)" checked></td>
+					onclick="makeRequestArchive(<%=requestRow.getId()%>)" checked></td>
 			</tr>
 			<%
 			}
@@ -83,7 +83,7 @@ if (!isLoggedIn) {
 					<div class="message"><%=requestRow.getMessage()%></div>
 				</td>
 				<td><input type="checkbox" name="" id=""
-					onclick="activeRequest(<%=requestRow.getId()%>)" checked></td>
+					onclick="makeRequestActive(<%=requestRow.getId()%>)" checked></td>
 			</tr>
 			<%
 			}
@@ -92,7 +92,7 @@ if (!isLoggedIn) {
 		</tbody>
 	</table>
 	<script type="text/javascript">
-	function archiveRequest(id){
+	function makeRequestArchive(id){
 		let xhr = new XMLHttpRequest();
 		xhr.open("POST" , "./dashboard");
 		xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
@@ -105,7 +105,7 @@ if (!isLoggedIn) {
 		xhr.send(body);
 	}
 	
-	function activeRequest(id){
+	function makeRequestActive(id){
 		let xhr = new XMLHttpRequest();
 		xhr.open("POST" , "./dashboard");
 		xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
