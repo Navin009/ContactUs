@@ -1,4 +1,4 @@
-package com.company;
+package com.servlet;
 
 import java.io.IOException;
 
@@ -13,17 +13,17 @@ import javax.servlet.http.HttpServletResponse;
 public class SignOutServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		
 		Cookie[] cookies = request.getCookies();
-
 		for (Cookie cookie : cookies) {
 			if (cookie.getName().equals("UID")) {
 				cookie.setPath("/contactus");
 				cookie.setMaxAge(0);
 
 				response.addCookie(cookie);
-				response.sendRedirect("./login");
 			}
-		}
+		}	
+		response.sendRedirect("./login");
 	}
 
 }

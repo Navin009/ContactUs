@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<%@page import="com.company.Request"%>
-<%@page import="com.company.RequestDao"%>
+<%@page import="com.model.Request"%>
+<%@page import="com.dao.RequestDao"%>
 <%@page import="java.util.List"%>
 <html lang="en">
 
