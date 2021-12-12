@@ -44,6 +44,7 @@ public class RequestDao {
 		try {
 			Statement statement = connection.createStatement();
 			ResultSet resultSet = statement.executeQuery("SELECT * FROM feedback WHERE archived = 1");
+			
 			while (resultSet.next()) {
 				Request request = new Request();
 				request.setId(resultSet.getInt("id"));
@@ -71,6 +72,7 @@ public class RequestDao {
 			
 			if (status.equals("active")) {
 				int result = statement.executeUpdate("UPDATE feedback SET archived = " + 1 + " WHERE id = " + id);
+				
 				if (result == 1) {
 					return true;
 				} else {
