@@ -21,6 +21,10 @@ if (session.getAttribute("email") != null && session.getAttribute("password") !=
 	isLoggedIn = true;
 }
 
+if(!isLoggedIn){
+	response.sendRedirect("./login");
+}
+
 %>
 <body>
 	<button class="signout-btn"
