@@ -40,8 +40,8 @@ if(!isLoggedIn){
 		</thead>
 		<tbody>
 			<%
-			RequestDao requestDao = new RequestDao();
-			List<Request> activeRequests = requestDao.getAllActiveRequests();
+			
+			List<Request> activeRequests = (List<Request>) request.getAttribute("activeRequests");
 			if (activeRequests != null) {
 				for (Request requestRow : activeRequests) {
 			%>
@@ -71,7 +71,8 @@ if(!isLoggedIn){
 		</thead>
 		<tbody>
 			<%
-			List<Request> archiveRequests = requestDao.getAllArchiveRequests();
+			
+			List<Request> archiveRequests = (List<Request>) request.getAttribute("archiveRequests");
 			if (archiveRequests != null) {
 				for (Request requestRow : archiveRequests) {
 			%>

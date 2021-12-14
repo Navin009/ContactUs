@@ -6,6 +6,7 @@ public class Request {
     private String email;
     private String message;
     private boolean isArchived;
+    private String timeStamp;
 
     public Integer getId() {
         return id;
@@ -46,4 +47,12 @@ public class Request {
     public void setId(Integer id) {
         this.id = id;
     }
+
+	public String getTimeStamp() {
+		return timeStamp;
+	}
+
+	public void setTimeStamp(String timeStamp) {
+		this.timeStamp = timeStamp;
+	}
 }
